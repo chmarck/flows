@@ -1,28 +1,28 @@
 #include <iostream>
 #include <vector>
 
-#include "flowSheet.h"
+#include "flowsheet.h"
 #include "vertex.h"
 
 
 static void run_iter_test() {
-     std::vector<int> v = {1,4,6,2,7};
+     std::vector<char> v = {'a','r','f','q'};
      for (auto i=v.cbegin(); i!=v.cend(); i++) 
           std::cout << *i << std::endl;
 
-     for (auto i: v) 
-          std::cout << i << std::endl;
+     std::cout << *v.rend();
 }
 
 static void vertex() {
      FlowSheet f;
-     f.create_vertex();
-     f.create_vertex();
-     f.create_vertex();
+     FlowSheet v;
 
-     f.connect_vertices(f.get_vertex(0), f.get_vertex(0));
-     f.connect_vertices(f.get_vertex(0), f.get_vertex(1));
-     f.connect_vertices(f.get_vertex(2), f.get_vertex(1));
+     v.create_vertex();
+     
+
+     int x = v.get_idx(v.get_vertex(0));
+
+
      
 
 }
@@ -30,6 +30,7 @@ static void vertex() {
 int main(int argc, char* argv[]){
      std::cout << "Main file is working!" << std::endl;
      
+     run_iter_test();
      vertex();
 
 }

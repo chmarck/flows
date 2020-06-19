@@ -19,6 +19,10 @@ class Vertex {
           //Print the destination of outgoing edges
           void print_edges();
 
+          std::vector<Edge> get_inbound_edges();
+
+          std::vector<Edge> get_outbound_edges();
+
           inline void set_name(const std::string& _name) {
                this->name = _name;
           }
