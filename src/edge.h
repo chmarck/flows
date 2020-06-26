@@ -4,14 +4,19 @@ class Vertex;
 
 class Edge {
      private:
-          const Vertex& destination;
+          Vertex& origin;
+          Vertex& destination;
 
      private:
      public:
-          Edge(const Vertex& _destination);
+          Edge(Vertex& _origin, Vertex& _destination);
           virtual ~Edge();
 
-          inline const Vertex& get_destination() {
+          inline Vertex& get_origin() const {
+               return this->origin;
+          }
+
+          inline Vertex& get_destination() {
                return this->destination;
           }
 

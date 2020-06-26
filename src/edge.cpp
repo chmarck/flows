@@ -1,7 +1,11 @@
 #include "edge.h"
 
-Edge::Edge(const Vertex& _destination) :
+#include "vertex.h"
+
+Edge::Edge(Vertex& _origin, Vertex& _destination) :
+     origin(_origin),
      destination(_destination) {}
 
-
-Edge::~Edge() {}
+Edge::~Edge() {
+     this->destination.remove_inbound(*this);
+    }

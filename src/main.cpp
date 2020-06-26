@@ -1,36 +1,31 @@
 #include <iostream>
 #include <vector>
 
-#include "flowsheet.h"
+#include "bi_graph.h"
 #include "vertex.h"
 
 
 static void run_iter_test() {
      std::vector<char> v = {'a','r','f','q'};
-     for (auto i=v.cbegin(); i!=v.cend(); i++) 
-          std::cout << *i << std::endl;
+     
+     char target = 'b';
+     auto lambda = [target](char _v){return target==_v;};
 
-     std::cout << *v.rend();
+     auto it = std::find_if(v.begin(), v.end(), lambda);
+     std::cout << (it != v.end()) << std::endl;
+
 }
 
 static void vertex() {
-     FlowSheet f;
-     FlowSheet v;
-
-     v.create_vertex();
-     
-
-     int x = v.get_idx(v.get_vertex(0));
-
-
-     
+     BiGraph f;
+     f.create_vertex(std::string("A"));
+     f.create_vertex(std::string("B"));
+     f.create_vertex(std::string("C"));
 
 }
 
 int main(int argc, char* argv[]){
      std::cout << "Main file is working!" << std::endl;
      
-     run_iter_test();
-     vertex();
 
 }
